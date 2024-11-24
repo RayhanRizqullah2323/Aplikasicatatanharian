@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import GuiCatatatan.GuiCatatan;
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.*;
@@ -188,15 +189,13 @@ public class GuiCatatanHarian extends javax.swing.JFrame {
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         String catatan = jTextAreaCatatan.getText().trim();
+        // Check if the note area is empty
         if (catatan.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Catatan kosong, tidak bisa disimpan!", "Peringatan", JOptionPane.WARNING_MESSAGE);
         } else {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter("catatan.txt"))) {
-                writer.write(catatan);
-                JOptionPane.showMessageDialog(this, "Catatan disimpan!");
-            } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Gagal menyimpan catatan: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
+            String filePath = "catatan.txt"; // Specify your file path here
+            saveNoteToFile(catatan, filePath);
+            JOptionPane.showMessageDialog(this, "Catatan berhasil disimpan!", "Informasi", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_button1ActionPerformed
 
@@ -308,4 +307,8 @@ public class GuiCatatanHarian extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
+
+    private void saveNoteToFile(String catatan, String filePath) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
